@@ -1,0 +1,185 @@
+
+<!-- saved from url=(0047)file:///C:/Users/ludal/Downloads/curdle0.5.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+  <title>curdle</title>
+  <link rel="icon" type="image/x-icon" href="file:///C:/Users/ludal/Downloads/curdle0.5_files/fav.png">
+  <link rel="stylesheet" href="./curdle0.6_files/styles.css">
+<style type="text/css" id="operaUserStyle"></style></head>
+<body onload="rCol()">
+
+<div class-"header"="">
+  <h1>curdle</h1>
+  <p>i love colors</p>
+</div>
+
+<div>
+  <div id="garea">
+  <div class="guesses">
+  <div id="r1" class="grow">
+    <ul id="row1">
+        <li id="11"></li>
+        <li id="12"></li>
+        <li id="13"></li>
+        <li id="14"></li>
+        <li id="15"></li>
+        <li id="16"></li></ul><div id="c1" class="gbox" style="background: rgb(0, 0, 0);">
+    </div>
+  </div>
+  <div id="r2" class="grow">
+    <ul id="row2">
+        <li id="21"></li>
+        <li id="22"></li>
+        <li id="23"></li>
+        <li id="24"></li>
+        <li id="25"></li>
+        <li id="26"></li>
+    </ul>
+    <div id="c2" class="gbox" style="background: rgb(0, 0, 0);">
+    </div>
+  </div>
+  <div id="r3" class="grow">
+    <ul id="row3">
+        <li id="31"></li>
+        <li id="32"></li>
+        <li id="33"></li>
+        <li id="34"></li>
+        <li id="35"></li>
+        <li id="36"></li>
+    </ul>
+    <div id="c3" class="gbox" style="background: rgb(0, 0, 0);">
+    </div>
+  </div>
+<div id="r4" class="grow">
+    <ul id="row3">
+        <li id="41"></li>
+        <li id="42"></li>
+        <li id="43"></li>
+        <li id="44"></li>
+        <li id="45"></li>
+        <li id="46"></li>
+    </ul>
+    <div id="c4" class="gbox" style="background: rgb(0, 0, 0);">
+    </div>
+  </div><div id="r5" class="grow">
+    <ul id="row5">
+        <li id="51"></li>
+        <li id="52"></li>
+        <li id="53"></li>
+        <li id="54"></li>
+        <li id="55"></li>
+        <li id="56"></li>
+    </ul>
+    <div id="c5" class="gbox" style="background: rgb(0, 0, 0);">
+    </div>
+  </div><div id="r6" class="grow">
+    <ul id="row6">
+        <li id="61"></li>
+        <li id="62"></li>
+        <li id="63"></li>
+        <li id="64"></li>
+        <li id="65"></li>
+        <li id="66"></li>
+    </ul>
+    <div id="c6" class="gbox" style="background: rgb(0, 0, 0);">
+    </div>
+  </div></div>
+  
+  <div id="colorbox" style="background: rgb(118, 100, 193);">
+  </div>
+    <button onclick="rCol()">
+        <img class="rtb" src="./curdle0.6_files/32161.png">
+    </button>
+    <input id="area" onkeypress="subGuess(event.key)">
+  </div>
+ </div>
+
+<script>
+  var n = (Math.random() * 0xfffff * 1000000).toString(16).slice(0, 6);
+  var g = document.getElementById("area").value;
+  var guessnum = 0;
+  var regex = /[0-9A-Fa-f]{6}/g;
+  let cur = "";
+  function subGuess(key){
+    if(key == "Enter"){
+	if(guessnum < 6){
+	    if(document.getElementById("area").value.length < 7){
+		if(document.getElementById("area").value.match(regex)){
+      		    fGuess(document.getElementById("area").value);
+      		    pGuess();
+      		    nCol();
+     		    if(n === g){
+	    	    	alert("Congrats! You guessed the color in " + guessnum + " out of 6 tries!")
+			return
+		    }
+                    if(guessnum === 6){
+			alert("You've run out of guesses... the hex was " + n + " try again?")
+		    }
+		    return
+		}
+		alert("Your guess is not a hex code...")
+		return
+
+	    }
+	    alert("Your guess is too long...")
+	    return
+	}
+	alert("You've run out of guesses..")
+	return
+    }
+  }
+  function fGuess(guess){
+	guessnum += 1;
+    document.getElementById("area").value = "";
+    console.log(guess);
+	g = guess;
+    }
+  function getColH(){
+    return '#' + n;
+  }
+
+  function rCol(){
+    n = (Math.random() * 0xfffff * 1000000).toString(16).slice(0, 6);
+    document.getElementById("colorbox").style.background = getColH();
+    document.getElementById("area").value = "";
+    console.log(n);
+      guessnum = 0;
+      for(let m = 1; m < 7; m++){
+      cur = "c" + m;
+      document.getElementById(cur).style.background = "#000000";
+        for (let f = 1; f < 7; f++) {
+          document.getElementById(m.toString() + f).innerHTML = "";
+      }
+    }
+  }
+
+  function nCol(){
+      cur = "c" + guessnum;
+      document.getElementById(cur).style.background = "#" + g;
+    }
+
+  function isIn(li, ch){
+	for(var q = 1; q < 7; q++) {
+	    if (li[q - 1] === ch && q % 2 === 0){
+		return q;
+	    }
+	}
+}
+  function pGuess(){
+      for (let f = 1; f < 7; f++) {
+        let j = g.slice(f-1, f);
+        let k = n.slice(f-1, f);
+        let isj = isIn(n, j);
+	
+	  if(j===k){
+          document.getElementById(guessnum.toString() + f).style.color = "green";
+      }
+      if(j!==k && n.indexOf(j) < 0){
+          document.getElementById(guessnum.toString() + f).style.color = "red";
+      }
+      if((f + 1) % 2 === 1 && isj > 0 && j!==k){
+          document.getElementById(guessnum.toString() + f).style.color = "orange";
+      }
+        document.getElementById(guessnum.toString() + f).innerHTML = g.slice(f-1, f);
+    }
+  }
+</script></body></html>

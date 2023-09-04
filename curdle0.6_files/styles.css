@@ -1,0 +1,160 @@
+body {
+  background-color: #111;
+  margin: 0;
+}
+
+.header {
+  background-color: #555;
+}
+
+h1 {
+  width: 100%;
+  text-align: center;
+  font-size: 40px;
+  color: white;
+  font-family: sans-serif;
+}
+
+button {
+  display: block;
+  background: #222222;
+  border-radius: 30px;
+  margin-left: 18%;
+  left: 20px;
+  position: relative;
+  width: 15%;
+}
+
+
+p {
+  text-align: center;
+  font-size: 20px;
+  color: #999;
+  font-family: sans-serif;
+}
+
+#colorbox {
+  position: relative;
+  height: 540px;
+  width: 18%;
+  background: #999999;
+  margin-left: 20px;
+  margin-right: auto;
+  border-radius: 30px;
+  display: inline-block;
+}
+
+input {
+    margin-left: 35%;
+    margin-right: 35px;
+    font-size: 85px;
+    font-family: monospace;
+    width: 57%;
+    height: 11%;
+    padding: 12px 20px;
+    display: block;
+    list-style-type: none;
+    border: none;
+    background-color: #444;
+    color: black;
+    position: fixed;
+    bottom: 10px;
+    left: 0;
+    border-radius: 20px;
+}
+
+ul {
+  float: right;
+  margin-top: 0;
+  width: 70%;
+  line-height: 90px;
+  display: inline;
+  list-style-type: none;
+  border: none;
+  position: relative;
+  clear: both;
+  margin-bottom: 0px;
+  font-size: 50px;
+  font-family: monospace;
+}
+
+.guesses {
+    height: 90px;
+    display: inline;
+    clear: both;
+    position: fixed;
+    left: 20px;
+    margin-left: 18%;
+    border-radius: 30px;
+    width: 76.5%;
+}
+
+.grow {
+    height: 90px;
+    display: block;
+    width: 100%;
+}
+
+div#r1 {}
+
+.gbox {
+    element.style {
+    position: relative;
+    top: 0px;
+    float: left;
+    background: rgb(0, 0, 0);
+    height: 90px;
+    border-radius: 30px;
+    width: 20%;
+};
+    element.style {
+    position: relative;
+    top: 0px;
+    float: left;
+    background: rgb(0, 0, 0);
+    height: 90px;
+    border-radius: 30px;
+    width: 20%;
+};
+    position: relative;
+    top: 0px;
+    float: left;
+    height: 90px;
+    border-radius: 30px;
+    width: 20%;
+    display: inline;
+}
+
+li {width: 4%;display: inline-block;}
+
+img.rtb{
+    background: none;
+    position: relative;
+    height: 50%;
+    width: 84px;
+    display: inline;
+}
+
+#c2 {
+    background-color: black;
+}
+
+#c1 {
+    background-color: black;
+}
+
+#c3 {
+    background-color: black;
+}
+
+#c4 {
+    background-color: black;
+}
+
+#c5 {
+    background-color: black;
+}
+
+#c6 {
+    background-color: black;
+}
